@@ -1,0 +1,956 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="45" passed="33" failed="12" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-11-02T14:58:54 IST" name="Default suite" finished-at="2026-11-02T15:09:54 IST" duration-ms="660729">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test started-at="2026-11-02T14:58:54 IST" name="Default test" finished-at="2026-11-02T15:09:54 IST" duration-ms="660729">
+      <class name="runners.TestRunner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T14:58:54 IST" name="setUpClass" finished-at="2026-11-02T14:58:55 IST" duration-ms="1549" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@29058723]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T14:58:55 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T14:59:06 IST" duration-ms="11130" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Create Cohort Batch using Mandatory Fields"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Batch Creation"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T14:59:06 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T14:59:13 IST" duration-ms="6957" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify batch creation and Roster Matrix navigation"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Batch Creation"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T14:59:13 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T14:59:19 IST" duration-ms="5613" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify negative batch validations"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Batch Creation"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T14:59:19 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T14:59:25 IST" duration-ms="6128" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify negative batch validations"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Batch Creation"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T14:59:25 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T14:59:31 IST" duration-ms="5335" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify negative batch validations"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Batch Creation"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T14:59:31 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T14:59:36 IST" duration-ms="5459" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify negative batch validations"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Batch Creation"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T14:59:36 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T14:59:41 IST" duration-ms="5302" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify negative batch validations"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Batch Creation"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T14:59:41 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T15:00:16 IST" duration-ms="35017" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify Certificates and Approvals page"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Certificates and Approvals"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator 'By.xpath: (//tbody/tr[1]//*[name()='svg'])[1]' (tried for 20 second(s) with 500 milliseconds interval)]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator 'By.xpath: (//tbody/tr[1]//*[name()='svg'])[1]' (tried for 20 second(s) with 500 milliseconds interval)
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+at utils.ElementUtils.click(ElementUtils.java:37)
+at pages.CertificatesApprovalsPage.clickPreview(CertificatesApprovalsPage.java:176)
+at stepdefinitions.CertificateSteps.userClicksPreviewForACertificate(CertificateSteps.java:38)
+at ✽.user clicks Preview for a certificate(file:///C:/Users/Admin/eclipse-workspace/CorzaarIMS_Merchant/src/test/resources/features/MerchantCertificate.feature:9)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"(//tbody/tr[1]//*[name()='svg'])[1]"}
+  (Session info: chrome=156.0.8078.49)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [4485e75732adee9d21d7d3f80f8d9297, findElement {using=xpath, value=(//tbody/tr[1]//*[name()='svg'])[1]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 156.0.8078.49, chrome: {chromedriverVersion: 156.0.8078.80 (fb096c0011f9..., userDataDir: C:\Users\Admin\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62011}, goog:processID: 9304, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:62011/devtoo..., se:cdpVersion: 156.0.8078.49, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:cmtgKey: true, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 4485e75732adee9d21d7d3f80f8d9297
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at jdk.proxy2/jdk.proxy2.$Proxy24.isDisplayed(Unknown Source)
+at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:304)
+at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
+at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:287)
+at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:656)
+at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:652)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
+... 4 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T15:00:16 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T15:00:21 IST" duration-ms="5144" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Create certificate template with valid details"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Certificates and Approvals"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T15:00:21 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T15:00:27 IST" duration-ms="5799" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Create certificate template with valid details"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Certificates and Approvals"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T15:00:27 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T15:01:04 IST" duration-ms="36856" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify negative certificate validations"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Certificates and Approvals"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T15:01:04 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T15:01:41 IST" duration-ms="36744" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify negative certificate validations"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Certificates and Approvals"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T15:01:41 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T15:02:17 IST" duration-ms="36340" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify negative certificate validations"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Certificates and Approvals"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T15:02:17 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T15:02:53 IST" duration-ms="36161" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify negative certificate validations"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Certificates and Approvals"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T15:02:53 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T15:02:58 IST" duration-ms="4741" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Create coupon with valid details"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Coupon Creation"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T15:02:58 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T15:03:03 IST" duration-ms="5033" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Create coupon with valid details"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Coupon Creation"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T15:03:03 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T15:03:39 IST" duration-ms="35505" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validate coupon with invalid details"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Coupon Creation"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Validation message not displayed for: BlankCouponCode expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Validation message not displayed for: BlankCouponCode expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1590)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at stepdefinitions.CouponSteps.couponShouldNotBeSubmittedForApprovalFor(CouponSteps.java:51)
+at ✽.coupon should not be submitted for approval for "BlankCouponCode"(file:///C:/Users/Admin/eclipse-workspace/CorzaarIMS_Merchant/src/test/resources/features/MerchantCoupon.feature:22)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T15:03:39 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T15:04:14 IST" duration-ms="35811" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validate coupon with invalid details"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Coupon Creation"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Validation message not displayed for: InvalidCouponCode expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Validation message not displayed for: InvalidCouponCode expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1590)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at stepdefinitions.CouponSteps.couponShouldNotBeSubmittedForApprovalFor(CouponSteps.java:51)
+at ✽.coupon should not be submitted for approval for "InvalidCouponCode"(file:///C:/Users/Admin/eclipse-workspace/CorzaarIMS_Merchant/src/test/resources/features/MerchantCoupon.feature:22)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T15:04:14 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T15:04:50 IST" duration-ms="35496" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validate coupon with invalid details"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Coupon Creation"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Validation message not displayed for: ZeroCouponDiscount expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Validation message not displayed for: ZeroCouponDiscount expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1590)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at stepdefinitions.CouponSteps.couponShouldNotBeSubmittedForApprovalFor(CouponSteps.java:51)
+at ✽.coupon should not be submitted for approval for "ZeroCouponDiscount"(file:///C:/Users/Admin/eclipse-workspace/CorzaarIMS_Merchant/src/test/resources/features/MerchantCoupon.feature:22)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T15:04:50 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T15:05:26 IST" duration-ms="35579" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validate coupon with invalid details"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Coupon Creation"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Validation message not displayed for: CouponDiscountAbove100 expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Validation message not displayed for: CouponDiscountAbove100 expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1590)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at stepdefinitions.CouponSteps.couponShouldNotBeSubmittedForApprovalFor(CouponSteps.java:51)
+at ✽.coupon should not be submitted for approval for "CouponDiscountAbove100"(file:///C:/Users/Admin/eclipse-workspace/CorzaarIMS_Merchant/src/test/resources/features/MerchantCoupon.feature:22)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T15:05:26 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T15:06:01 IST" duration-ms="35493" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validate coupon with invalid details"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Coupon Creation"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Validation message not displayed for: NegativeCouponDiscount expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Validation message not displayed for: NegativeCouponDiscount expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1590)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at stepdefinitions.CouponSteps.couponShouldNotBeSubmittedForApprovalFor(CouponSteps.java:51)
+at ✽.coupon should not be submitted for approval for "NegativeCouponDiscount"(file:///C:/Users/Admin/eclipse-workspace/CorzaarIMS_Merchant/src/test/resources/features/MerchantCoupon.feature:22)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T15:06:01 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T15:06:07 IST" duration-ms="6346" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Create a course and verify its actual status"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Course Authoring"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T15:06:07 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T15:06:33 IST" duration-ms="25744" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify negative course validations"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Course Authoring"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T15:06:33 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T15:06:59 IST" duration-ms="25468" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify negative course validations"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Course Authoring"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T15:06:59 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T15:07:24 IST" duration-ms="25631" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify negative course validations"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Course Authoring"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T15:07:24 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T15:07:50 IST" duration-ms="25809" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify negative course validations"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Course Authoring"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T15:07:50 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T15:08:16 IST" duration-ms="25692" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify negative course validations"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Course Authoring"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T15:08:16 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T15:08:21 IST" duration-ms="5287" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Update existing course details"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Course Authoring"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Updated course was not displayed in the course table expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Updated course was not displayed in the course table expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1590)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at stepdefinitions.CourseSteps.theUpdatedCourseShouldBeDisplayedInTheCourseTable(CourseSteps.java:128)
+at ✽.the updated course "Advanced Technical Support" should be displayed in the course table(file:///C:/Users/Admin/eclipse-workspace/CorzaarIMS_Merchant/src/test/resources/features/MerchantCourse.feature:45)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T15:08:21 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T15:08:26 IST" duration-ms="5235" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Delete existing course"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Course Authoring"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Deleted course is still displayed in the course table expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Deleted course is still displayed in the course table expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1590)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at stepdefinitions.CourseSteps.theDeletedCourseShouldNotBeDisplayedInTheCourseTable(CourseSteps.java:139)
+at ✽.the deleted course "CompTIA Security+ (SY0-701) Complete Course & Practice Exam" should not be displayed in the course table(file:///C:/Users/Admin/eclipse-workspace/CorzaarIMS_Merchant/src/test/resources/features/MerchantCourse.feature:55)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T15:08:26 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T15:08:31 IST" duration-ms="4320" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify Learner Retention and Funnel Insights"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Funnel Insights"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T15:08:31 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T15:08:35 IST" duration-ms="4355" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify Institute Overview details"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Studio Overview Dashboard Validation"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T15:08:35 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T15:08:40 IST" duration-ms="4666" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify Add button"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Studio Overview Dashboard Validation"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T15:08:40 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T15:08:45 IST" duration-ms="5693" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify  card navigation"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Studio Overview Dashboard Validation"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T15:08:45 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T15:08:52 IST" duration-ms="6224" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify Learner Drop-off card navigation"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Studio Overview Dashboard Validation"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T15:08:52 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T15:08:56 IST" duration-ms="4956" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify Course and Batch counts"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Studio Overview Dashboard Validation"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Batch count mismatch between Batch Table and Overview expected [1] but found [21]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Batch count mismatch between Batch Table and Overview expected [1] but found [21]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1590)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:1431)
+at org.testng.Assert.assertEquals(Assert.java:1395)
+at stepdefinitions.OverviewSteps.courseAndBatchTableCountsShouldMatchOverview(OverviewSteps.java:174)
+at ✽.course and batch table counts should match overview(file:///C:/Users/Admin/eclipse-workspace/CorzaarIMS_Merchant/src/test/resources/features/MerchantOverview.feature:39)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T15:08:56 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T15:09:01 IST" duration-ms="4062" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Successful Institute Partner Login"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Institute Login"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T15:09:01 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T15:09:14 IST" duration-ms="13346" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validate negative login and OTP cases"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Institute Login"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T15:09:14 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T15:09:18 IST" duration-ms="3706" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validate negative login and OTP cases"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Institute Login"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[OTP page should not open for invalid mobile expected [false] but found [true]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: OTP page should not open for invalid mobile expected [false] but found [true]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1590)
+at org.testng.Assert.assertFalse(Assert.java:79)
+at stepdefinitions.LoginSteps.loginNegativeCaseShouldBeValidated(LoginSteps.java:123)
+at ✽.login negative case "alphabet" should be validated(file:///C:/Users/Admin/eclipse-workspace/CorzaarIMS_Merchant/src/test/resources/features/Merchantlogin.feature:24)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T15:09:18 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T15:09:21 IST" duration-ms="3766" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validate negative login and OTP cases"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Institute Login"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[OTP page should not open for invalid mobile expected [false] but found [true]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: OTP page should not open for invalid mobile expected [false] but found [true]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1590)
+at org.testng.Assert.assertFalse(Assert.java:79)
+at stepdefinitions.LoginSteps.loginNegativeCaseShouldBeValidated(LoginSteps.java:123)
+at ✽.login negative case "special_char" should be validated(file:///C:/Users/Admin/eclipse-workspace/CorzaarIMS_Merchant/src/test/resources/features/Merchantlogin.feature:24)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T15:09:21 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T15:09:35 IST" duration-ms="13354" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validate negative login and OTP cases"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Institute Login"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T15:09:35 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T15:09:38 IST" duration-ms="3445" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validate negative login and OTP cases"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Institute Login"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[OTP page should not open for invalid mobile expected [false] but found [true]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: OTP page should not open for invalid mobile expected [false] but found [true]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1590)
+at org.testng.Assert.assertFalse(Assert.java:79)
+at stepdefinitions.LoginSteps.loginNegativeCaseShouldBeValidated(LoginSteps.java:123)
+at ✽.login negative case "long_mobile" should be validated(file:///C:/Users/Admin/eclipse-workspace/CorzaarIMS_Merchant/src/test/resources/features/Merchantlogin.feature:24)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T15:09:38 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T15:09:42 IST" duration-ms="3880" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validate negative login and OTP cases"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Institute Login"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T15:09:42 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T15:09:46 IST" duration-ms="3905" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validate negative login and OTP cases"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Institute Login"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T15:09:46 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T15:09:50 IST" duration-ms="4145" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validate negative login and OTP cases"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Merchant Institute Login"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T15:09:50 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-11-02T15:09:54 IST" duration-ms="4163" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify user logout successfully"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Logout functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:runners.TestRunner@dc9876b]" started-at="2026-11-02T15:09:54 IST" name="tearDownClass" finished-at="2026-11-02T15:09:54 IST" duration-ms="90" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- runners.TestRunner -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
