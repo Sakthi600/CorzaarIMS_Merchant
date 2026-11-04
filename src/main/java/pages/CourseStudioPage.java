@@ -5,6 +5,7 @@ import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -97,17 +98,20 @@ public class CourseStudioPage {
 	@FindBy(xpath = "//button[@title='Delete Course']")
 	private List<WebElement> deleteCourseButtons;
 
-	@FindBy(xpath = "//td[1]/ancestor::table//tbody/tr")
+	@FindBy(xpath = "//*[text()='Course Details']/following::tr")
 	private List<WebElement> courseRows;
 
-	@FindBy(xpath = "//table/descendant::tbody/tr/child::td[1]")
+	@FindBy(xpath = "//*[text()='Course Details']/following::tr/td[1]")
 	private List<WebElement> courseNameElements;
 
-	@FindBy(xpath = "//table/descendant::tbody/tr/child::td[4]")
+	@FindBy(xpath = "//*[text()='Course Details']/following::tr/td[4]")
 	private List<WebElement> courseStatusElements;
 
 	@FindBy(xpath = ".//button[@title='Delete Course']")
 	private List<WebElement> buttons;
+
+	@FindBy(xpath = "//*[contains(normalize-space(), 'Please fill out this field')]")
+	private WebElement validationMessage;
 
 	public void openCourseStudio() {
 
@@ -292,6 +296,28 @@ public class CourseStudioPage {
 		}
 
 		return false;
+	}
+
+	public boolean isValidationMessageDisplayed() {
+
+		JavascriptExecutor js = (JavascriptExecutor) DriverFactory.getDriver();
+
+		String validationMessage = (String) js.executeScript("let form = document.querySelector('form');"
+				+ "if (!form) return '';" + "let invalidField = form.querySelector(':invalid');"
+				+ "return invalidField ? invalidField.validationMessage : '';");
+
+		System.out.println("Validation Message: " + validationMessage);
+
+		return validationMessage != null && !validationMessage.isEmpty();
+	}
+
+	public boolean isCourseUpdateFormStillOpen() {
+
+		try {
+			return courseProgramModal.isDisplayed();
+		} catch (StaleElementReferenceException | NoSuchElementException e) {
+			return false;
+		}
 	}
 
 	public void deleteCourse(String courseName) {

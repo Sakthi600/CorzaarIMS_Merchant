@@ -33,7 +33,7 @@ public class OtpPage {
 	@FindBy(xpath = "(//button[@type='submit'])[1]")
 	private WebElement otpVerificationPage;
 
-	@FindBy(xpath = "//*[contains(translate(normalize-space(.), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'invalid otp')]")
+	@FindBy(xpath = "//*[text()='Invalid OTP code']")
 	private WebElement invalidOtpMessage;
 
 	public void enterOtp(String otp) {

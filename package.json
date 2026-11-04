@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "@allurereport/plugin-awesome": "^3.22.1",
+    "allure": "^3.22.1"
+  }
+}

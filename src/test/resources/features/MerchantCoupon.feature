@@ -10,8 +10,8 @@ Feature: Merchant Coupon Creation
 
     Examples:
       | CouponCode | Discount |
-      | SAVE13     | 10       |
-      | FESTIVE23  | 20       |
+      | SAVE16     | 10       |
+      | FESTIVE29  | 20       |
 
   @merchant @coupon @negative
   Scenario Outline: Validate coupon with invalid details

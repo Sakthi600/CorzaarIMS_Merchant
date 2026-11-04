@@ -63,7 +63,7 @@ public class OverviewPage {
 	@FindBy(xpath = "(//span[normalize-space()='Add Batch'])[1]")
 	private WebElement addBatchButton;
 
-	@FindBy(xpath = "//table//tbody/tr")
+	@FindBy(xpath = "//*[text()='StudentEnrollments']/following::tr")
 	private List<WebElement> studentEnrollRows;
 
 	@FindBy(xpath = "(//h3[normalize-space()='Course Studio'])[1]")

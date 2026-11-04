@@ -51,7 +51,7 @@ public class CouponsPage {
 	@FindBy(xpath = "//*[@role='alert']")
 	private WebElement validationMessage;
 
-	@FindBy(xpath = "//table/child::tbody/child::tr")
+	@FindBy(xpath = "//*[text()='Code & Offer']/following::tr")
 	private List<WebElement> couponRows;
 
 	public void openCoupons() {

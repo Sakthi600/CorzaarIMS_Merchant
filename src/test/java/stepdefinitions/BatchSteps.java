@@ -23,17 +23,13 @@ public class BatchSteps {
 		batchPage.clickCreateCohortBatch();
 	}
 
-	@When("user fills mandatory batch details {string} {string} {string} {string}")
-	public void userFillsMandatoryBatchDetails(String Coordinator, String StartDate, String EndDate,
-			String SeatCapacity) {
-		batchPage.selectCourse(3);
-
+	@When("user fills mandatory batch details {string} {string} {string} {string} {string}")
+	public void userFillsMandatoryBatchDetails(String Coordinator, String WeeklySchedule, String StartDate,
+			String EndDate, String SeatCapacity) {
 		batchPage.enterCoordinator(Coordinator);
-
+		batchPage.enterWeeklySchedule(WeeklySchedule);
 		batchPage.enterStartDate(StartDate);
-
 		batchPage.enterEndDate(EndDate);
-
 		batchPage.enterSeatCapacity(SeatCapacity);
 	}
 
@@ -62,6 +58,7 @@ public class BatchSteps {
 	@Then("the Roster Matrix page should be displayed")
 	public void theRosterMatrixPageShouldBeDisplayed() {
 		Assert.assertTrue(batchPage.isRosterMatrixDisplayed(), "Roster Matrix page is not displayed");
+		System.out.println("Header: " + batchPage.getRosterMatrixText());
 	}
 
 	@When("user closes the Roster Matrix")
@@ -74,60 +71,18 @@ public class BatchSteps {
 		Assert.assertTrue(batchPage.isRosterMatrixDisplayed(), "Roster Matrix is still displayed");
 	}
 
-	@When("user tests batch validation for {string} using  {string} {string} {string} {string}")
-	public void userTestsBatchValidationForUsing(String TestCase, String Coordinator, String StartDate, String EndDate,
-			String SeatCapacity) {
-		switch (TestCase) {
+	@When("user tests batch validation for {string} using  {string} {string} {string} {string} {string}")
+	public void userTestsBatchValidationForUsing(String TestCase, String Coordinator, String WeeklySchedule,
+			String StartDate, String EndDate, String SeatCapacity) {
+		batchPage.enterCoordinator(Coordinator);
+		batchPage.enterWeeklySchedule(WeeklySchedule);
+		batchPage.enterStartDate(StartDate);
+		batchPage.enterEndDate(EndDate);
+		batchPage.enterSeatCapacity(SeatCapacity);
 
-		case "MissingCoordinator":
-			batchPage.selectCourse(3);
-			batchPage.enterCoordinator(Coordinator);
-			batchPage.enterStartDate(StartDate);
-			batchPage.enterEndDate(EndDate);
-			batchPage.enterSeatCapacity(SeatCapacity);
-			batchPage.generateSessions();
-			break;
-
-		case "InvalidStartDate":
-			batchPage.selectCourse(3);
-			batchPage.enterCoordinator(Coordinator);
-			batchPage.enterStartDate(StartDate);
-			batchPage.enterEndDate(EndDate);
-			batchPage.enterSeatCapacity(SeatCapacity);
-			batchPage.generateSessions();
-			break;
-
-		case "InvalidEndDate":
-			batchPage.selectCourse(3);
-			batchPage.enterCoordinator(Coordinator);
-			batchPage.enterStartDate(StartDate);
-			batchPage.enterEndDate(EndDate);
-			batchPage.enterSeatCapacity(SeatCapacity);
-			batchPage.generateSessions();
-			break;
-
-		case "ZeroSeatCapacity":
-			batchPage.selectCourse(3);
-			batchPage.enterCoordinator(Coordinator);
-			batchPage.enterStartDate(StartDate);
-			batchPage.enterEndDate(EndDate);
-			batchPage.enterSeatCapacity(SeatCapacity);
-			batchPage.generateSessions();
-			break;
-
-		case "NegativeSeatCapacity":
-			batchPage.selectCourse(3);
-			batchPage.enterCoordinator(Coordinator);
-			batchPage.enterStartDate(StartDate);
-			batchPage.enterEndDate(EndDate);
-			batchPage.enterSeatCapacity(SeatCapacity);
-			batchPage.generateSessions();
-			break;
-
-		default:
-			throw new IllegalArgumentException("Unknown batch test case: " + TestCase);
-		}
+		batchPage.generateSessions();
 	}
+
 
 	@Then("batch validation should be displayed for {string}")
 	public void batchValidationShouldBeDisplayedFor(String TestCase) {

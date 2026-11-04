@@ -4,6 +4,7 @@ import java.time.Duration;
 
 import java.util.List;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -57,14 +58,14 @@ public class BatchesAttendancePage {
 	@FindBy(xpath = "//input[@id='cohort-seat-capacity']")
 	private WebElement seatCapacity;
 
-	@FindBy(xpath = "//*[normalize-space()='Selenium Automation Testing']")
-	private WebElement createdBatchNames;
-
 	@FindBy(xpath = "//span[text()='Generate Sessions & Schedule']")
 	private WebElement generateSessionsButton;
 
 	@FindBy(xpath = "(//span[normalize-space()='Cancel'])[1]")
 	private WebElement cancelButton;
+
+	@FindBy(xpath = "(//h1[normalize-space()='Batches & Attendance'])[1]")
+	private WebElement batchesPage;
 
 	@FindBy(xpath = "//*[normalize-space()='Selenium Automation Testing']")
 	private WebElement createdBatchName;
@@ -72,16 +73,16 @@ public class BatchesAttendancePage {
 	@FindBy(xpath = "(//span[contains(text(),'Roster Matrix')])[1]")
 	private WebElement rosterMatrixButton;
 
-	@FindBy(xpath = "(//th[@class='px-6 py-4 whitespace-nowrap text-right'])[1]")
+	@FindBy(xpath = "//*[normalize-space()='Roster Matrix']")
 	private WebElement rosterMatrixHeading;
 
 	@FindBy(xpath = "(//button[@aria-label='Close modal'])[1]")
 	private WebElement rosterMatrixCloseButton;
 
-	@FindBy(xpath = "//table/child::tbody/child::tr")
+	@FindBy(xpath = "//*[text()='Batch & Program']/following::tr")
 	private List<WebElement> batchRows;
 
-	@FindBy(xpath = "//table/child::tbody/child::tr/child::td[1]")
+	@FindBy(xpath = "//*[text()='Batch & Program']/following::tr/td[1]")
 	private List<WebElement> batchNameElements;
 
 	public void openBatchesAttendance() {
@@ -157,6 +158,15 @@ public class BatchesAttendancePage {
 		elementUtils.click(rosterMatrixButton);
 	}
 
+	public String getRosterMatrixText() {
+		elementUtils.waitForElement(rosterMatrixHeading);
+		return rosterMatrixHeading.getText();
+	}
+
+	public boolean isBatchesDisplayed() {
+		return rosterMatrixHeading.isDisplayed();
+	}
+
 	public boolean isRosterMatrixDisplayed() {
 		return rosterMatrixHeading.isDisplayed();
 	}
@@ -169,8 +179,53 @@ public class BatchesAttendancePage {
 		elementUtils.click(createCohortBatchButton);
 	}
 
+	public String getValidationMessage(WebElement element) {
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+
+		return (String) js.executeScript("return arguments[0].validationMessage;", element);
+	}
+
+	public boolean isNativeValidationDisplayed(WebElement element) {
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+
+		Boolean valid = (Boolean) js.executeScript("return arguments[0].checkValidity();", element);
+
+		String message = (String) js.executeScript("return arguments[0].validationMessage;", element);
+
+		System.out.println("Valid: " + valid);
+		System.out.println("Validation Message: " + message);
+
+		return Boolean.FALSE.equals(valid) && message != null && !message.trim().isEmpty();
+	}
+
 	public boolean isBatchValidationDisplayed(String testCase) {
-		return driver.getPageSource().contains("required");
+
+		switch (testCase) {
+
+		case "MissingCoordinator":
+			return isNativeValidationDisplayed(coordinator);
+
+		case "MissingWeeklySchedule":
+			return isNativeValidationDisplayed(weeklySchedule);
+
+		case "PastStartDate":
+		case "OldYearStartDate":
+			return isNativeValidationDisplayed(startDate);
+
+		case "PastEndDate":
+		case "InvalidEndDate":
+			return isNativeValidationDisplayed(endDate);
+
+		case "ZeroSeatCapacity":
+		case "BelowMinimumCapacity":
+		case "NegativeSeatCapacity":
+			return isNativeValidationDisplayed(seatCapacity);
+
+		default:
+			throw new IllegalArgumentException("Unknown test case: " + testCase);
+		}
 	}
 
 	public boolean isBatchDisplayed(String batchName) {

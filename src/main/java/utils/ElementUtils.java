@@ -24,7 +24,7 @@ public class ElementUtils {
 // Enter value into text field
 	public void fillValue(WebElement element, String value) {
 
-		WebElement ele = wait.until(ExpectedConditions.visibilityOf(element));
+		WebElement ele = wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(element)));
 
 		ele.clear();
 		ele.sendKeys(value);
@@ -105,20 +105,22 @@ public class ElementUtils {
 
 		wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(element)));
 	}
+
 // refreshpage
 	public void refreshPage() {
 		driver.navigate().refresh();
 	}
+
 	public void waitForAllElement(List<WebElement> batchRows) {
 
 		wait.until(ExpectedConditions.visibilityOfAllElements(batchRows));
 	}
+
 	public void waitForInvisibility(WebElement element) {
 
 		wait.until(ExpectedConditions.invisibilityOf(element));
 	}
-	
-	
+
 // 
-	
+
 }

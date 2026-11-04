@@ -129,6 +129,16 @@ public class CourseSteps {
 				"Updated course was not displayed in the course table");
 	}
 
+	@Then("the system should reject the invalid course details and prevent the update")
+	public void theSystemShouldRejectTheInvalidCourseDetailsAndPreventTheUpdate() {
+		boolean validationDisplayed = coursePage.isValidationMessageDisplayed();
+
+		Assert.assertTrue(validationDisplayed, "Validation failed: Invalid course details were not rejected.");
+
+		Assert.assertTrue(coursePage.isCourseUpdateFormStillOpen(),
+				"Invalid course details were saved successfully. Update should have been prevented.");
+	}
+
 	@When("user deletes the configured course {string}")
 	public void userDeletesTheConfiguredCourse(String CourseTitle) {
 		coursePage.deleteCourse(CourseTitle);

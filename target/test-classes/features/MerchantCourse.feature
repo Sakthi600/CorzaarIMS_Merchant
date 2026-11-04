@@ -13,8 +13,8 @@ Feature: Merchant Course Authoring
     And the existing course status should be displayed
 
     Examples:
-      | CourseTitle                                          | TuitionFee | Duration | Overview                          | ModuleTitle     | ModuleTitle1 |
-      | Claude Certified Architect (CCAR-F) - 2026 Exam Prep | 15000      | 3 Months | Learn Selenium automation testing | Selenium Basics | Corporate    |
+      | CourseTitle                 | TuitionFee | Duration | Overview                          | ModuleTitle     | ModuleTitle1 |
+      | Online Data Science Courses | 15000      | 2 Months | Learn Selenium automation testing | Selenium Basics | Corporate    |
 
   @merchant @course @negative
   Scenario Outline: Verify negative course validations
@@ -45,8 +45,22 @@ Feature: Merchant Course Authoring
     Then the updated course "<UpdatedTitle>" should be displayed in the course table
 
     Examples:
-      | CourseTitle                                                 | UpdatedTitle               | TuitionFee | Duration | Overview                            |
-      | CompTIA Security+ (SY0-701) Complete Course & Practice Exam | Advanced Technical Support | 18000      | 4 Months | Advanced technical support training |
+      | CourseTitle                  | UpdatedTitle               | TuitionFee | Duration | Overview                            |
+      | Flutter and Dart Full Course | Advanced Technical Support | 18000      | 4 Months | Advanced technical support training |
+
+  @merchant @course @updatenegative
+  Scenario Outline: Validate negative course update
+    When user opens Course Studio
+    And user clicks Edit for the course "<CourseTitle>"
+    And user updates course details "<UpdatedTitle>" "<TuitionFee>" "<Duration>" "<Overview>"
+    Then the system should reject the invalid course details and prevent the update
+
+    Examples:
+      | CourseTitle                  | UpdatedTitle | TuitionFee | Duration | Overview         |
+      | Flutter and Dart Full Course |              | 18000      | 3 Months | Advanced Support |
+      | Flutter and Dart Full Course | UpdatedTitle | 0          | 3 Months | Advanced Support |
+      | Flutter and Dart Full Course | UpdatedTitle | -1000      | 3 Months | Advanced Support |
+      | Flutter and Dart Full Course | UpdatedTitle | 18000      | -1       | Advanced Support |
 
   @merchant @course @delete
   Scenario Outline: Delete existing course
@@ -55,5 +69,5 @@ Feature: Merchant Course Authoring
     Then the deleted course "<CourseTitle>" should not be displayed in the course table
 
     Examples:
-      | CourseTitle                                                 |
-      | CompTIA Security+ (SY0-701) Complete Course & Practice Exam |
+      | CourseTitle                  |
+      | Flutter and Dart Full Course |
