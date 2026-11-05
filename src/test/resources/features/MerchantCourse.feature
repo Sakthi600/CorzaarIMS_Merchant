@@ -29,12 +29,12 @@ Feature: Merchant Course Authoring
     Then the course program modal should be closed
 
     Examples:
-      | TestCase           | CourseTitle | TuitionFee | Duration | Overview        | ModuleTitle |
-      | MissingTitle       |             | 15000      | 3 Months | Course Overview | Module 1    |
-      | MissingTuitionFee  | Test Course |            | 3 Months | Course Overview | Module 1    |
-      | MissingDuration    | Test Course | 15000      |          | Course Overview | Module 1    |
-      | MissingOverview    | Test Course | 15000      | 3 Months |                 | Module 1    |
-      | MissingModuleTitle | Test Course | 15000      | 3 Months | Course Overview |             |
+      | TestCase           | CourseTitle  | TuitionFee | Duration | Overview        | ModuleTitle |
+      | MissingTitle       |              | 15000      | 3 Months | Course Overview | Module 1    |
+      | MissingTuitionFee  | Test Course1 |            | 3 Months | Course Overview | Module 1    |
+      | MissingDuration    | Test Course2 | 15000      |          | Course Overview | Module 1    |
+      | MissingOverview    | Test Course3 | 15000      | 3 Months |                 | Module 1    |
+      | MissingModuleTitle | Test Course4 | 15000      | 3 Months | Course Overview |             |
 
   @merchant @course @update
   Scenario Outline: Update existing course details
@@ -53,6 +53,7 @@ Feature: Merchant Course Authoring
     When user opens Course Studio
     And user clicks Edit for the course "<CourseTitle>"
     And user updates course details "<UpdatedTitle>" "<TuitionFee>" "<Duration>" "<Overview>"
+    And user saves the course changes
     Then the system should reject the invalid course details and prevent the update
 
     Examples:

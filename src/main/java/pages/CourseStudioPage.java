@@ -110,9 +110,6 @@ public class CourseStudioPage {
 	@FindBy(xpath = ".//button[@title='Delete Course']")
 	private List<WebElement> buttons;
 
-	@FindBy(xpath = "//*[contains(normalize-space(), 'Please fill out this field')]")
-	private WebElement validationMessage;
-
 	public void openCourseStudio() {
 
 		elementUtils.click(courseStudioMenu);
@@ -248,8 +245,12 @@ public class CourseStudioPage {
 			throw new IllegalArgumentException("Unknown test case: " + testCase);
 		}
 
-		return Boolean.TRUE
-				.equals(((JavascriptExecutor) driver).executeScript("return !arguments[0].checkValidity();", field));
+		String message = (String) ((JavascriptExecutor) driver).executeScript("return arguments[0].validationMessage;",
+				field);
+
+		System.out.println("Validation Message: " + message);
+
+		return message != null && !message.trim().isEmpty();
 	}
 
 	public void fillModuleDetails(String title) {
@@ -302,13 +303,14 @@ public class CourseStudioPage {
 
 		JavascriptExecutor js = (JavascriptExecutor) DriverFactory.getDriver();
 
-		String validationMessage = (String) js.executeScript("let form = document.querySelector('form');"
-				+ "if (!form) return '';" + "let invalidField = form.querySelector(':invalid');"
-				+ "return invalidField ? invalidField.validationMessage : '';");
+		String validationMessage = (String) js
+				.executeScript("let form = document.querySelector('form');" + "if (!form) return '';"
+						+ "form.reportValidity();" + "let invalidField = form.querySelector(':invalid');"
+						+ "return invalidField ? invalidField.validationMessage : '';");
 
 		System.out.println("Validation Message: " + validationMessage);
 
-		return validationMessage != null && !validationMessage.isEmpty();
+		return validationMessage != null && !validationMessage.trim().isEmpty();
 	}
 
 	public boolean isCourseUpdateFormStillOpen() {
