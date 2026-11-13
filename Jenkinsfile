@@ -59,7 +59,13 @@ artifacts: 'target/cucumber-report.html, AllureReports/allure-results/**, Allure
 allowEmptyArchive: true
 )
 }
-
+stage('Prepare Allure Email Attachment') {
+steps {
+bat '''
+powershell -Command "Compress-Archive -Path 'AllureReports/allure-report/*' -DestinationPath 'AllureReports/AllureReport.zip' -Force"
+'''
+}
+}
 success {
 emailext(
 subject: "SUCCESS: ${JOB_NAME} #${BUILD_NUMBER}",
@@ -75,7 +81,8 @@ ${BUILD_URL}
 Allure HTML Report:
 ${BUILD_URL}artifact/AllureReports/allure-report/index.html
 """,
-to: 'vasanthvj.kiaq@gmail.com'
+to: 'vasanthvj.kiaq@gmail.com',
+attachmentsPattern: 'AllureReports/AllureReport.zip'
 )
 }
 
