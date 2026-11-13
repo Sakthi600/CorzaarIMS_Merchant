@@ -82,7 +82,7 @@ pipeline {
  stage('Allure Dashboard') {
  steps {
  allure([
- commandline: 'Allure3',
+ commandline: 'Allure-3',
  includeProperties: false,
  results: [[
  path: 'AllureReports/allure-results'
