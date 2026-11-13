@@ -175,7 +175,7 @@ echo Allure HTML ZIP created successfully
  attachmentsPattern:
  "AllureReports/Allure-HTML-Report-${env.BUILD_NUMBER}.zip",
 
- to: 'sakthivel.kiaq@gmail.com'
+ to: 'sathishsezhian@gmail.com'
  )
  }
 
