@@ -51,20 +51,19 @@ results: [[path: 'AllureReports/allure-results']]
 }
 }
 }
-
-post {
-always {
-archiveArtifacts(
-artifacts: 'target/cucumber-report.html, AllureReports/allure-results/**, AllureReports/allure-report/**',
-allowEmptyArchive: true
-)
-}
 stage('Prepare Allure Email Attachment') {
 steps {
 bat '''
 powershell -Command "Compress-Archive -Path 'AllureReports/allure-report/*' -DestinationPath 'AllureReports/AllureReport.zip' -Force"
 '''
 }
+}
+post {
+always {
+archiveArtifacts(
+artifacts: 'target/cucumber-report.html, AllureReports/allure-results/**, AllureReports/allure-report/**',
+allowEmptyArchive: true
+)
 }
 success {
 emailext(
