@@ -81,7 +81,7 @@ ${BUILD_URL}
 Allure HTML Report:
 ${BUILD_URL}artifact/AllureReports/allure-report/index.html
 """,
-to: 'vasanthvj.kiaq@gmail.com',
+to: 'sakthivel.kiaq@gmail.com',
 attachmentsPattern: 'AllureReports/AllureReport.zip'
 )
 }
