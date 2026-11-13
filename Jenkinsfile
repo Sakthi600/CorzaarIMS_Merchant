@@ -2,6 +2,11 @@
 pipeline {
 agent any
 
+options {
+timestamps()
+disableConcurrentBuilds()
+}
+
 stages {
 
 stage('Checkout') {
@@ -22,6 +27,71 @@ stage('Run Automation') {
 steps {
 bat 'mvn clean test'
 }
+}
+
+stage('HTML Report') {
+steps {
+publishHTML(target: [
+reportDir: 'target',
+reportFiles: 'cucumber-report.html',
+reportName: 'Cucumber HTML Report',
+keepAll: true,
+alwaysLinkToLastBuild: true,
+allowMissing: true
+])
+}
+}
+
+stage('Allure Report') {
+steps {
+allure([
+includeProperties: false,
+results: [[path: 'AllureReports/allure-results']]
+])
+}
+}
+}
+
+post {
+always {
+archiveArtifacts(
+artifacts: 'target/cucumber-report.html, AllureReports/allure-results/**',
+allowEmptyArchive: true
+)
+}
+
+success {
+emailext(
+subject: "SUCCESS: ${JOB_NAME} #${BUILD_NUMBER}",
+body: """
+Automation Execution Successful!
+
+Job: ${JOB_NAME}
+Build: ${BUILD_NUMBER}
+Status: ${BUILD_STATUS}
+
+Jenkins Build URL:
+${BUILD_URL}
+""",
+to: 'sakthivel.kiaq@gmail.com'
+)
+}
+
+failure {
+emailext(
+subject: "FAILURE: ${JOB_NAME} #${BUILD_NUMBER}",
+body: """
+Automation Execution Failed!
+
+Job: ${JOB_NAME}
+Build: ${BUILD_NUMBER}
+Status: ${BUILD_STATUS}
+
+Please check Console Output:
+${BUILD_URL}console
+""",
+to: 'sakthivel.kiaq@gmail.com'
+)
 }
 }
 }
