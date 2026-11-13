@@ -55,7 +55,7 @@ results: [[path: 'AllureReports/allure-results']]
 post {
 always {
 archiveArtifacts(
-artifacts: 'target/cucumber-report.html, AllureReports/allure-results/**',
+artifacts: 'target/cucumber-report.html, AllureReports/allure-results/**, AllureReports/allure-report/**',
 allowEmptyArchive: true
 )
 }
@@ -72,8 +72,10 @@ Status: ${currentBuild.currentResult}
 
 Jenkins Build URL:
 ${BUILD_URL}
+Allure HTML Report:
+${BUILD_URL}artifact/AllureReports/allure-report/index.html
 """,
-to: 'sakthivel.kiaq@gmail.com'
+to: 'vasanthvj.kiaq@gmail.com'
 )
 }
 
