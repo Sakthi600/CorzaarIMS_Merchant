@@ -129,7 +129,7 @@ echo Allure HTML ZIP created successfully
 '''
 }
 }
-
+}
 
  // 8. Post Build Actions
  post {
