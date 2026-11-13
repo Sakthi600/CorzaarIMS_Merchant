@@ -24,77 +24,78 @@ pipeline {
  bat 'mvn -version'
  bat 'node --version'
  bat 'npm --version'
+ bat 'npx allure --version'
  }
  }
 
  // 3. Selenium Automation
  stage('Run Automation') {
  steps {
- catchError(
- buildResult: 'FAILURE',
- stageResult: 'FAILURE'
- ) {
  bat 'mvn clean test'
  }
  }
- }
 
-stage('Check Allure Results') {
-steps {
-bat '''
-echo ===== WORKSPACE =====
-cd
-
-echo ===== CHECK ALLURE REPORTS =====
-
-if exist "AllureReports\\allure-results" (
-echo FOUND: AllureReports
-dir "AllureReports\\allure-results"
-) else (
-echo NOT FOUND: AllureReports
-)
-
-echo ===== CHECK TARGET =====
-
-if exist "target\\allure-results" (
-echo FOUND: target
-dir "target\\allure-results"
-) else (
-echo NOT FOUND: target
-)
-
-echo ===== SEARCH RESULT JSON =====
-dir /s /b *-result.json 2>nul
-'''
-}
-}
-
- // 4. Generate Complete Allure HTML
- stage('Generate Allure HTML Report') {
+ // 4. Verify Allure Results
+ stage('Check Allure Results') {
  steps {
- echo 'Generating Allure HTML Report'
-
  bat '''
+ echo ===== CHECK ALLURE RESULTS =====
+
  if not exist "AllureReports\\allure-results" (
- echo Allure results folder not found
+ echo ERROR: Allure results folder not found
  exit /b 1
  )
 
- if not exist "AllureReports" (
- mkdir "AllureReports"
- )
+ echo Allure results folder found
 
- call npx allure generate "AllureReports\\allure-results" --clean --output "AllureReports\\allure-report-%BUILD_NUMBER%"
+ dir "AllureReports\\allure-results"
 
- if not exist "AllureReports\\allure-report-%BUILD_NUMBER%\\index.html" (
- echo Allure index.html was not generated
+ echo ===== CHECK RESULT JSON =====
+
+ dir /b "AllureReports\\allure-results\\*-result.json" 2>nul
+
+ if errorlevel 1 (
+ echo ERROR: No Allure result JSON files found
  exit /b 1
  )
+
+ echo Allure results verified successfully
  '''
  }
  }
 
- // 5. Publish Allure HTML
+ // 5. Generate Allure HTML
+ stage('Generate Allure HTML Report') {
+ steps {
+ bat '''
+ @echo off
+
+ echo ===== GENERATING ALLURE HTML =====
+
+ if not exist "AllureReports" mkdir "AllureReports"
+
+ set "REPORT_DIR=AllureReports\\allure-report-%BUILD_NUMBER%"
+
+ call npx allure generate "AllureReports\\allure-results" --clean --output "%REPORT_DIR%"
+
+ if errorlevel 1 (
+ echo ERROR: Allure generation failed
+ exit /b 1
+ )
+
+ if not exist "%REPORT_DIR%\\index.html" (
+ echo ERROR: index.html not generated
+ exit /b 1
+ )
+
+ echo SUCCESS: Allure index.html generated
+
+ dir "%REPORT_DIR%"
+ '''
+ }
+ }
+
+ // 6. Publish Allure HTML
  stage('Publish Allure HTML Report') {
  steps {
  publishHTML(target: [
@@ -108,24 +109,9 @@ dir /s /b *-result.json 2>nul
  }
  }
 
- // 6. Jenkins Allure Dashboard
- stage('Allure Dashboard') {
- steps {
- allure([
- commandline: 'Allure-3',
- includeProperties: false,
- results: [[
- path: 'AllureReports/allure-results'
- ]]
- ])
- }
- }
-
- // 7. Create Full HTML ZIP
+ // 7. Prepare Full Report ZIP
  stage('Prepare Allure Email Attachment') {
  steps {
- echo 'Creating complete Allure HTML ZIP'
-
  bat '''
  powershell -NoProfile -ExecutionPolicy Bypass -Command "
  $src = 'AllureReports\\allure-report-' + $env:BUILD_NUMBER
@@ -137,7 +123,7 @@ dir /s /b *-result.json 2>nul
 
  Compress-Archive -Path (Join-Path $src '*') -DestinationPath $zip -Force
 
- Write-Host 'Allure HTML ZIP created successfully'
+ Write-Host 'Complete Allure HTML ZIP created'
  "
  '''
  }
@@ -151,7 +137,7 @@ dir /s /b *-result.json 2>nul
  echo 'Archiving automation reports'
 
  archiveArtifacts(
- artifacts: "AllureReports/Allure-HTML-Report-${env.BUILD_NUMBER}.zip,target/cucumber-report.html",
+ artifacts: "AllureReports/allure-report-${env.BUILD_NUMBER}/**/*,AllureReports/Allure-HTML-Report-${env.BUILD_NUMBER}.zip",
  allowEmptyArchive: true
  )
  }
@@ -162,14 +148,17 @@ dir /s /b *-result.json 2>nul
  emailext(
  subject: "SUCCESS: ${JOB_NAME} #${BUILD_NUMBER}",
  mimeType: 'text/html',
+
  body: """
+ <html>
+ <body>
  <h2>Automation Execution Successful</h2>
 
  <p><b>Job:</b> ${JOB_NAME}</p>
  <p><b>Build:</b> ${BUILD_NUMBER}</p>
  <p><b>Status:</b> SUCCESS</p>
 
- <p>Allure HTML Report is attached as a ZIP file.</p>
+ <p>Complete Allure HTML Report is attached as ZIP.</p>
 
  <p>
  <a href="${BUILD_URL}">
@@ -178,8 +167,13 @@ dir /s /b *-result.json 2>nul
  </p>
 
  <p>Regards,<br>Automation Team</p>
+ </body>
+ </html>
  """,
- attachmentsPattern: "AllureReports/Allure-HTML-Report-${env.BUILD_NUMBER}.zip",
+
+ attachmentsPattern:
+ "AllureReports/Allure-HTML-Report-${env.BUILD_NUMBER}.zip",
+
  to: 'sakthivel.kiaq@gmail.com'
  )
  }
@@ -190,7 +184,10 @@ dir /s /b *-result.json 2>nul
  emailext(
  subject: "FAILURE: ${JOB_NAME} #${BUILD_NUMBER}",
  mimeType: 'text/html',
+
  body: """
+ <html>
+ <body>
  <h2>Automation Execution Failed</h2>
 
  <p><b>Job:</b> ${JOB_NAME}</p>
@@ -206,8 +203,13 @@ dir /s /b *-result.json 2>nul
  </p>
 
  <p>Regards,<br>Automation Team</p>
+ </body>
+ </html>
  """,
- attachmentsPattern: "AllureReports/Allure-HTML-Report-${env.BUILD_NUMBER}.zip",
+
+ attachmentsPattern:
+ "AllureReports/Allure-HTML-Report-${env.BUILD_NUMBER}.zip",
+
  to: 'sakthivel.kiaq@gmail.com'
  )
  }
