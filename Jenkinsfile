@@ -50,12 +50,12 @@ results: [[path: 'AllureReports/allure-results']]
 ])
 }
 }
-}
 stage('Prepare Allure Email Attachment') {
 steps {
 bat '''
 powershell -Command "Compress-Archive -Path 'AllureReports/allure-report/*' -DestinationPath 'AllureReports/AllureReport.zip' -Force"
 '''
+}
 }
 }
 post {
