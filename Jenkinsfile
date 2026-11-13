@@ -1,105 +1,185 @@
-
 pipeline {
-agent any
+ agent any
 
-options {
-timestamps()
-disableConcurrentBuilds()
-}
+ options {
+ timestamps()
+ disableConcurrentBuilds()
+ skipDefaultCheckout(true)
+ }
 
-stages {
+ stages {
 
-stage('Checkout') {
-steps {
-echo 'GitHub repository connected'
-checkout scm
-}
-}
+ // 1. GitHub Checkout
+ stage('Checkout') {
+ steps {
+ echo 'Checking out GitHub repository'
+ checkout scm
+ }
+ }
 
-stage('Environment Check') {
-steps {
-bat 'java -version'
-bat 'mvn -version'
-}
-}
+ // 2. Environment Check
+ stage('Environment Check') {
+ steps {
+ bat 'java -version'
+ bat 'mvn -version'
+ bat 'node --version'
+ bat 'npm --version'
+ }
+ }
 
-stage('Run Automation') {
-steps {
-bat 'mvn clean test'
-}
-}
+ // 3. Selenium Automation
+ stage('Run Automation') {
+ steps {
+ catchError(
+ buildResult: 'FAILURE',
+ stageResult: 'FAILURE'
+ ) {
+ bat 'mvn clean test'
+ }
+ }
+ }
 
-stage('HTML Report') {
-steps {
-publishHTML(target: [
-reportDir: 'target',
-reportFiles: 'cucumber-report.html',
-reportName: 'Cucumber HTML Report',
-keepAll: true,
-alwaysLinkToLastBuild: true,
-allowMissing: true
-])
-}
-}
+ // 4. Generate Complete Allure HTML
+ stage('Generate Allure HTML Report') {
+ steps {
+ echo 'Generating Allure HTML Report'
 
-stage('Allure Report') {
-steps {
-allure([
-includeProperties: false,
-results: [[path: 'AllureReports/allure-results']]
-])
-}
-}
-stage('Prepare Allure Email Attachment') {
-steps {
-bat '''
-powershell -Command "Compress-Archive -Path 'AllureReports/allure-report/*' -DestinationPath 'AllureReports/AllureReport.zip' -Force"
-'''
-}
-}
-}
-post {
-always {
-archiveArtifacts(
-artifacts: 'target/cucumber-report.html, AllureReports/allure-results/**, AllureReports/allure-report/**',
-allowEmptyArchive: true
-)
-}
-success {
-emailext(
-subject: "SUCCESS: ${JOB_NAME} #${BUILD_NUMBER}",
-body: """
-Automation Execution Successful!
+ bat '''
+ if not exist "AllureReports\\allure-results" (
+ echo Allure results folder not found
+ exit /b 1
+ )
 
-Job: ${JOB_NAME}
-Build: ${BUILD_NUMBER}
-Status: ${currentBuild.currentResult}
+ if not exist "AllureReports" (
+ mkdir "AllureReports"
+ )
 
-Jenkins Build URL:
-${BUILD_URL}
-Allure HTML Report:
-${BUILD_URL}artifact/AllureReports/allure-report/index.html
-""",
-to: 'sakthivel.kiaq@gmail.com',
-attachmentsPattern: 'AllureReports/AllureReport.zip'
-)
-}
+ call npx allure generate "AllureReports\\allure-results" --clean --output "AllureReports\\allure-report-%BUILD_NUMBER%"
 
-failure {
-emailext(
-subject: "FAILURE: ${JOB_NAME} #${BUILD_NUMBER}",
-body: """
-Automation Execution Failed!
+ if not exist "AllureReports\\allure-report-%BUILD_NUMBER%\\index.html" (
+ echo Allure index.html was not generated
+ exit /b 1
+ )
+ '''
+ }
+ }
 
-Job: ${JOB_NAME}
-Build: ${BUILD_NUMBER}
-Status: ${currentBuild.currentResult}
+ // 5. Publish Allure HTML
+ stage('Publish Allure HTML Report') {
+ steps {
+ publishHTML(target: [
+ reportDir: "AllureReports/allure-report-${env.BUILD_NUMBER}",
+ reportFiles: 'index.html',
+ reportName: 'Allure HTML Report',
+ keepAll: true,
+ alwaysLinkToLastBuild: true,
+ allowMissing: false
+ ])
+ }
+ }
 
-Please check Console Output:
-${BUILD_URL}console
-""",
-to: 'sakthivel.kiaq@gmail.com'
-)
-}
-}
+ // 6. Jenkins Allure Dashboard
+ stage('Allure Dashboard') {
+ steps {
+ allure([
+ commandline: 'Allure3',
+ includeProperties: false,
+ results: [[
+ path: 'AllureReports/allure-results'
+ ]]
+ ])
+ }
+ }
+
+ // 7. Create Full HTML ZIP
+ stage('Prepare Allure Email Attachment') {
+ steps {
+ echo 'Creating complete Allure HTML ZIP'
+
+ bat '''
+ powershell -NoProfile -ExecutionPolicy Bypass -Command "
+ $src = 'AllureReports\\allure-report-' + $env:BUILD_NUMBER
+ $zip = 'AllureReports\\Allure-HTML-Report-' + $env:BUILD_NUMBER + '.zip'
+
+ if (!(Test-Path (Join-Path $src 'index.html'))) {
+ throw 'Allure index.html not found'
+ }
+
+ Compress-Archive -Path (Join-Path $src '*') -DestinationPath $zip -Force
+
+ Write-Host 'Allure HTML ZIP created successfully'
+ "
+ '''
+ }
+ }
+ }
+
+ // 8. Post Build Actions
+ post {
+
+ always {
+ echo 'Archiving automation reports'
+
+ archiveArtifacts(
+ artifacts: "AllureReports/Allure-HTML-Report-${env.BUILD_NUMBER}.zip,target/cucumber-report.html",
+ allowEmptyArchive: true
+ )
+ }
+
+ success {
+ echo 'Automation execution SUCCESS'
+
+ emailext(
+ subject: "SUCCESS: ${JOB_NAME} #${BUILD_NUMBER}",
+ mimeType: 'text/html',
+ body: """
+ <h2>Automation Execution Successful</h2>
+
+ <p><b>Job:</b> ${JOB_NAME}</p>
+ <p><b>Build:</b> ${BUILD_NUMBER}</p>
+ <p><b>Status:</b> SUCCESS</p>
+
+ <p>Allure HTML Report is attached as a ZIP file.</p>
+
+ <p>
+ <a href="${BUILD_URL}">
+ Open Jenkins Build
+ </a>
+ </p>
+
+ <p>Regards,<br>Automation Team</p>
+ """,
+ attachmentsPattern: "AllureReports/Allure-HTML-Report-${env.BUILD_NUMBER}.zip",
+ to: 'sakthivel.kiaq@gmail.com'
+ )
+ }
+
+ failure {
+ echo 'Automation execution FAILED'
+
+ emailext(
+ subject: "FAILURE: ${JOB_NAME} #${BUILD_NUMBER}",
+ mimeType: 'text/html',
+ body: """
+ <h2>Automation Execution Failed</h2>
+
+ <p><b>Job:</b> ${JOB_NAME}</p>
+ <p><b>Build:</b> ${BUILD_NUMBER}</p>
+ <p><b>Status:</b> FAILURE</p>
+
+ <p>Please check Jenkins Console Output.</p>
+
+ <p>
+ <a href="${BUILD_URL}console">
+ View Console Output
+ </a>
+ </p>
+
+ <p>Regards,<br>Automation Team</p>
+ """,
+ attachmentsPattern: "AllureReports/Allure-HTML-Report-${env.BUILD_NUMBER}.zip",
+ to: 'sakthivel.kiaq@gmail.com'
+ )
+ }
+ }
 }
