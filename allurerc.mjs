@@ -1,7 +1,7 @@
 import { defineConfig } from "allure";
  
 export default defineConfig({
-name: "SauceDemo Automation Report",
+name: "CorzaarIMS-Merchant Automation Report",
 output: "./AllureReports/allure-report",
  
 plugins: {
