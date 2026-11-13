@@ -68,7 +68,7 @@ Automation Execution Successful!
 
 Job: ${JOB_NAME}
 Build: ${BUILD_NUMBER}
-Status: ${BUILD_STATUS}
+Status: ${currentBuild.currentResult}
 
 Jenkins Build URL:
 ${BUILD_URL}
@@ -85,7 +85,7 @@ Automation Execution Failed!
 
 Job: ${JOB_NAME}
 Build: ${BUILD_NUMBER}
-Status: ${BUILD_STATUS}
+Status: ${currentBuild.currentResult}
 
 Please check Console Output:
 ${BUILD_URL}console
