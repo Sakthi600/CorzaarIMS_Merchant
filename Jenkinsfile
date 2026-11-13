@@ -39,6 +39,36 @@ pipeline {
  }
  }
 
+stage('Check Allure Results') {
+steps {
+bat '''
+echo ===== WORKSPACE =====
+cd
+
+echo ===== CHECK ALLURE REPORTS =====
+
+if exist "AllureReports\\allure-results" (
+echo FOUND: AllureReports
+dir "AllureReports\\allure-results"
+) else (
+echo NOT FOUND: AllureReports
+)
+
+echo ===== CHECK TARGET =====
+
+if exist "target\\allure-results" (
+echo FOUND: target
+dir "target\\allure-results"
+) else (
+echo NOT FOUND: target
+)
+
+echo ===== SEARCH RESULT JSON =====
+dir /s /b *-result.json 2>nul
+'''
+}
+}
+
  // 4. Generate Complete Allure HTML
  stage('Generate Allure HTML Report') {
  steps {
