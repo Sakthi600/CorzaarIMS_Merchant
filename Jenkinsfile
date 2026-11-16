@@ -31,9 +31,10 @@ pipeline {
  // 3. Selenium Automation
  stage('Run Automation') {
  steps {
- bat 'mvn clean test'
+ bat 'mvn clean test -DbaseUrl="%QA_URL%" -Dheadless=true'
  }
  }
+
 
  // 4. Verify Allure Results
  stage('Check Allure Results') {
