@@ -176,8 +176,7 @@ echo Allure HTML ZIP created successfully
  "AllureReports/Allure-HTML-Report-${env.BUILD_NUMBER}.zip",
 
  to: 'sakthivel.kiaq@gmail.com',
- cc:'vasanthvj.kiaq@gmail.com',
- cc:'sanathjayasurya.kiaq@gmail.com'
+ cc:'vasanthvj.kiaq@gmail.com,sanathjayasurya.kiaq@gmail.com'
  )
  }
 
