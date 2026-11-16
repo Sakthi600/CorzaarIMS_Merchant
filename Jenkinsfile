@@ -112,25 +112,25 @@ pipeline {
 
  // 7. Prepare Full Report ZIP
  stage('Prepare Allure Email Attachment') {
-steps {
-bat '''
-if not exist "AllureReports\\allure-report-%BUILD_NUMBER%\\index.html" (
-echo Allure index.html not found
-exit /b 1
-)
+ steps {
+ bat '''
+ if not exist "AllureReports\\allure-report-%BUILD_NUMBER%\\index.html" (
+ echo Allure index.html not found
+ exit /b 1
+ )
 
-powershell -NoProfile -ExecutionPolicy Bypass -Command "Compress-Archive -Path 'AllureReports\\allure-report-%BUILD_NUMBER%\\*' -DestinationPath 'AllureReports\\Allure-HTML-Report-%BUILD_NUMBER%.zip' -Force"
+ powershell -NoProfile -ExecutionPolicy Bypass -Command "Compress-Archive -Path 'AllureReports\\allure-report-%BUILD_NUMBER%\\*' -DestinationPath 'AllureReports\\Allure-HTML-Report-%BUILD_NUMBER%.zip' -Force"
 
-if not exist "AllureReports\\Allure-HTML-Report-%BUILD_NUMBER%.zip" (
-echo ZIP file creation failed
-exit /b 1
-)
+ if not exist "AllureReports\\Allure-HTML-Report-%BUILD_NUMBER%.zip" (
+ echo ZIP file creation failed
+ exit /b 1
+ )
 
-echo Allure HTML ZIP created successfully
-'''
-}
-}
-}
+ echo Allure HTML ZIP created successfully
+ '''
+ }
+ }
+ }
 
  // 8. Post Build Actions
  post {
