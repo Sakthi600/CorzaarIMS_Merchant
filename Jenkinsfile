@@ -1,6 +1,13 @@
 pipeline {
  agent any
 
+ parameters {
+ string(
+ name: 'APP_URL',
+ defaultValue: '',
+ description: 'Application URL received from DevOps'
+ )
+ }
  options {
  timestamps()
  disableConcurrentBuilds()
@@ -13,7 +20,8 @@ pipeline {
  stage('Checkout') {
  steps {
  echo 'Checking out GitHub repository'
- checkout scm
+ git branch: 'main',
+ url: 'https://github.com/Sakthi600/CorzaarIMS_Merchant.git'
  }
  }
 
@@ -31,11 +39,19 @@ pipeline {
  // 3. Selenium Automation
  stage('Run Automation') {
  steps {
- bat 'mvn clean test -DbaseUrl="%QA_URL%" -Dheadless=true'
- }
+ script {
+ if (!params.APP_URL?.trim()) {
+ error 'APP_URL not received from DevOps'
  }
 
+ echo "Testing deployed URL: ${params.APP_URL}"
 
+ bat """
+ mvn clean test -DbaseUrl="${params.APP_URL}" -Dheadless=true
+ """
+ }
+ }
+ }
  // 4. Verify Allure Results
  stage('Check Allure Results') {
  steps {
@@ -216,4 +232,36 @@ pipeline {
  )
  }
  }
+}
+
+
+
+
+stage('Trigger QA Automation') {
+steps {
+script {
+
+// Get deployed application URL
+def deployedUrl = env.DEPLOYED_APP_URL
+
+if (!deployedUrl?.trim()) {
+error 'Deployment URL is missing'
+}
+
+echo "Deployed URL: ${deployedUrl}"
+
+// Trigger QA Jenkins Job
+build job: 'Selenium-Hybrid-CICD',
+
+parameters: [
+string(
+name: 'APP_URL',
+value: deployedUrl
+)
+],
+
+wait: true,
+propagate: true
+}
+}
 }
